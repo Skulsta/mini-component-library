@@ -6,15 +6,25 @@ import { COLORS } from "../../constants";
 import VisuallyHidden from "../VisuallyHidden";
 
 const ProgressBar = ({ value, size }) => {
+  const SIZES = {
+    small: {
+      height: 8 + "px",
+    },
+    medium: {
+      height: 12 + "px",
+    },
+    large: {
+      height: 24 + "px",
+    },
+  };
   return (
-    <Wrapper>
+    <Wrapper style={SIZES[size]}>
       <Bar style={{ "--width": value + "%" }}></Bar>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  height: 8px;
   background-color: ${COLORS.transparentGray15};
   border-radius: 4px;
   /* border radius when the bar is close to full */
